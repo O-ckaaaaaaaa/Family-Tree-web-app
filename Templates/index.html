@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree with Spouses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="static/index.css">
+</head>
+<body>
+<h1>Welcome, {{ username }}!</h1>
+    <div class="container">
+        <h1><i class="fas fa-tree"></i> Family Tree with Spouses</h1>
+      <nav>
+               <!-- <a href="index.html" class="nav-link"> Tree</a>
+                <a href="events.html" class="nav-link"> Events</a>
+                <a href="charts.html" class="nav-link">Charts</a>-->
+                <button onclick="window.location.href='/index'" class="btn"><i class="fas fa-tree"></i>Home</button>
+                <button onclick="window.location.href='/events'" ><i class="fas fa-calendar-alt"></i>Events</button>
+                <button onclick="window.location.href='/charts'" class="btn"><i class="fas fa-chart-line"></i> Charts</button>
+      </nav>
+        <div class="main-content">
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Controls</h3>
+            <button id="add-root" class="tool-button"><i class="fas fa-user-plus"></i> Add Root</button>
+            <button id="add-child" disabled class="tool-button"><i class="fas fa-baby"></i> Add Child</button>
+            <button id="add-spouse" disabled class="tool-button"><i class="fas fa-heart"></i> Add Spouse</button>
+            <button id="edit-person" disabled class="tool-button"><i class="fas fa-edit"></i> Edit</button>
+            <button id="delete-person" disabled class="tool-button" ><i class="fas fa-trash"></i> Delete</button>
+            <button id="save-tree" class="tool-button"><i class="fas fa-save"></i> Save</button>
+            <button id="load-tree" class="tool-button" ><i class="fas fa-folder-open"></i> Load</button>
+            <button id="reset-tree" class="tool-button" ><i class="fas fa-redo"></i> Reset</button>
+                </div>
+       <!-- <a href="events.html" style="background-color:#3498db;color:white"><i class="fas fa-calendar-alt"></i> Family Events</a>-->
+        </div>
+
+        <div id="tree-container"></div>
+
+
+    <!-- Add/Edit Person Modal -->
+    <div class="modal" id="person-modal">
+        <div class="modal-content">
+            <h2 class="modal-title" id="modal-title">Add Person</h2>
+            <form id="person-form">
+                <input type="hidden" id="person-id">
+
+                <div id="image-preview-container">
+                    <img id="image-preview" src="https://www.gravatar.com/avatar/default?s=200&d=mp">
+                    <button type="button" id="upload-btn"><i class="fas fa-camera"></i> Upload Photo</button>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name*</label>
+                    <input type="text" id="name" required placeholder="Enter full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="gender-icons">
+                        <div class="gender-option male selected" data-value="male">
+                            <i class="fas fa-mars"></i>
+                            Male
+                        </div>
+                        <div class="gender-option female" data-value="female">
+                            <i class="fas fa-venus"></i>
+                            Female
+                        </div>
+                        <div class="gender-option other" data-value="other">
+                            <i class="fas fa-genderless"></i>
+                            Other
+                        </div>
+                    </div>
+                    <input type="hidden" id="gender" value="male">
+                </div>
+
+                <div class="form-group">
+                    <label for="birth-date">Birth Date</label>
+                    <input type="date" id="birth-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+1 (123) 456-7890">
+                </div>
+
+                <div class="form-group" id="parent-select-group" style="display: none;">
+                    <label for="parent-id">Parent</label>
+                    <select id="parent-id"></select>
+                </div>
+
+                <div class="form-group" id="spouse-select-group" style="display: none;">
+                    <label for="spouse-id">Spouse</label>
+                    <select id="spouse-id"></select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancel-btn">Cancel</button>
+                    <button type="submit">Save Person</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </div>
+<a href="/logout">Logout</a>
+    <script src="static/family-trees.js"></script>
+</body>
+</html>

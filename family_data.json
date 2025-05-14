@@ -1,0 +1,22 @@
+{
+  "people": [
+    {
+      "name": "oscar",
+      "gender": "male",
+      "birthDate": "1999-03-12",
+      "phone": "0788332636",
+      "photo": "http://127.0.0.1:5000/uploads/1745609135.269854_images.jpg",
+      "id": "1"
+    },
+    {
+      "name": "murungi",
+      "gender": "male",
+      "birthDate": "",
+      "phone": "",
+      "photo": "https://www.gravatar.com/avatar/default?s=200&d=mp",
+      "parentId": "1",
+      "id": "3"
+    }
+  ],
+  "nextId": 4
+}
